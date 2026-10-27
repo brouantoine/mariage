@@ -123,11 +123,14 @@ label { display: block; margin-bottom: 8px; color: #edf2f7; font-size: .78rem; f
 label > span:not(.optional) { color: var(--ruby-soft); }
 .optional { margin-left: 5px; color: #9fafc2; font-size: .7rem; font-weight: 400; }
 input, select, textarea { width: 100%; padding: 15px 16px; border: 1px solid #4f6686; border-radius: 6px; color: var(--white); background: #172f52; font: 400 .88rem var(--sans); transition: border-color .2s ease, background-color .2s ease, box-shadow .2s ease; }
+.honeypot { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 input::placeholder, textarea::placeholder { color: #aebed0; }
 input:focus, select:focus, textarea:focus { border-color: var(--ruby-soft); background: #1b385f; box-shadow: 0 0 0 4px rgba(233,160,167,.1); outline: 0; }
 textarea { min-height: 100px; resize: vertical; }
 .field-error { display: block; min-height: 17px; padding-top: 5px; color: #f2b5bb; font-size: .7rem; }
 .form-status { min-height: 24px; margin: 18px 0 0; color: var(--ruby-soft); font-size: .8rem; line-height: 1.5; text-align: center; }
+.form-note { margin: 12px 0 0; color: #9fafc2; font-size: .67rem; text-align: center; }
+.button:disabled { cursor: wait; opacity: .7; transform: none; }
 
 .footer { position: relative; z-index: 1; display: flex; justify-content: space-between; gap: 20px; padding: 30px 7vw; color: var(--muted); font-size: .78rem; }
 .footer p { margin: 0; }

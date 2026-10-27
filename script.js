@@ -5,6 +5,7 @@ const verseReplay = document.querySelector('#verse-replay');
 const petalsLayer = document.querySelector('#petals');
 const form = document.querySelector('#rsvp-form');
 const status = document.querySelector('#form-status');
+const submitButton = form?.querySelector('button[type="submit"]');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const typedMessage = 'Une histoire à célébrer';
 const verseMessage = 'Deux cœurs, une promesse, et Dieu comme témoin.';
@@ -126,10 +127,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     if (!valid) return;
-    const response = attendance.value === 'yes'
-      ? 'Merci, votre présence est notée sur cet appareil. Nous avons hâte de vous retrouver.'
-      : 'Merci pour votre réponse. Nous penserons bien à vous ce jour-là.';
-    status.textContent = response;
-    form.reset();
+
+    const buttonLabel = submitButton?.textContent;
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = 'Envoi en cours…';
+    }
+    status.textContent = '';
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' },
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error('email-service-error');
+        const message = attendance.value === 'yes'
+          ? 'Merci, votre présence a bien été envoyée. Nous avons hâte de vous retrouver.'
+          : 'Merci pour votre réponse. Elle a bien été envoyée.';
+        status.textContent = message;
+        form.reset();
+      })
+      .catch(() => {
+        status.textContent = 'L’envoi n’a pas abouti. Vérifiez votre connexion puis réessayez.';
+      })
+      .finally(() => {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = buttonLabel;
+        }
+      });
   });
 });

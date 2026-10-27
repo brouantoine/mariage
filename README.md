@@ -10,3 +10,7 @@ Site statique pour l'invitation de Loïc et Ruth. Il fonctionne sans base de don
 4. Laisser les réglages par défaut, puis cliquer sur **Deploy**.
 
 Vercel détecte automatiquement le site HTML. Chaque modification envoyée sur GitHub sera ensuite publiée automatiquement.
+
+## Réponses des invités
+
+Le formulaire RSVP envoie les réponses à `brouantoineassanvo@gmail.com` via FormSubmit. Lors de la première réponse, FormSubmit peut demander une confirmation de l’adresse e-mail destinataire. Il faut valider ce message pour activer la réception.

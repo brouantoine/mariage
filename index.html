@@ -111,7 +111,12 @@
           <p class="eyebrow">Votre présence compte</p>
           <h2 id="rsvp-title">Serez-vous des nôtres ?</h2>
           <p>Confirmez votre présence afin que nous puissions vous accueillir au mieux.</p>
-          <form id="rsvp-form" novalidate>
+          <form id="rsvp-form" action="https://formsubmit.co/ajax/brouantoineassanvo@gmail.com" method="POST" novalidate>
+            <input type="hidden" name="_subject" value="Nouvelle réponse pour le mariage de Loïc et Ruth" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="honeypot" />
+            <input type="hidden" name="Origine" value="Invitation mariage Loïc et Ruth" />
             <div class="form-field">
               <label for="name">Votre nom <span aria-hidden="true">*</span></label>
               <input id="name" name="name" type="text" autocomplete="name" required placeholder="Ex. Marie Kouassi" />
@@ -132,6 +137,7 @@
             </div>
             <button class="button button--accent" type="submit">Envoyer ma réponse</button>
             <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+            <p class="form-note">Les réponses sont envoyées par e-mail.</p>
           </form>
         </div>
       </section>
